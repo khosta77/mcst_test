@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include <sstream>
+#include <memory>
 #include <cmath>
 #include <limits>
 #include <iomanip>
