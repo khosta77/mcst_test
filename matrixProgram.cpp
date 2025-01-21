@@ -55,12 +55,31 @@ void test_invalid_input()
     };
 }
 
+void test_invalid_input_v2()
+{
+    std::stringstream input, output;
+    input << "3 3\n +\n one two ...";
+    Operations oper;
+    try
+    {
+        oper( input, output );
+        throw;
+    }
+    catch( const std::exception& emsg )
+    {
+        std::string result( emsg.what() );
+        assert( ( result == "Произошла ошибка при чтении из потока" ) );
+        result.clear();
+    };
+}
+
 void tests()
 {
     test_plus();
     test_minus();
     test_some();
     test_invalid_input();
+    test_invalid_input_v2();
 }
 
 int main()
