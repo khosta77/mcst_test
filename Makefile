@@ -18,7 +18,7 @@ matrixOperationsLib:
 	@$(CC) -fPIC -shared -O0 $(STD) $(W) -o libmatrixOperations.so matrixOperations.cpp
 
 matrixProgram:
-	@$(CC) -L. -lmatrixOperations --coverage -g -O0 $(STD) $(W) matrixProgram.cpp -o test_matrixProgram
+	@$(CC) --coverage -g -O0 $(STD) $(W) matrixProgram.cpp -L. -lmatrixOperations -o test_matrixProgram
 	./test_matrixProgram
 	@echo "---------------------"
 	@gcov test_matrixProgram-matrixProgram.cpp | grep -A 1 "File 'matrixProgram.hpp'"
@@ -28,7 +28,7 @@ matrixProgram:
 	@rm -rf *.dSYM
 
 main:
-	$(CC) -L. -lmatrixOperations -O2 $(STD) $(W) main.cpp -o matrixProgram
+	$(CC) -O2 $(STD) $(W) main.cpp -L. -lmatrixOperations -o matrixProgram
 	$(TARGET)
 
 clean:
