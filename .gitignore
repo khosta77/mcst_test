@@ -1,0 +1,13 @@
+.DS_Store
+
+matrixProgram
+
+*.out
+
+*.gcov
+*.gcda
+*.gcno
+*.dSYM
+
+*.o
+*.so
